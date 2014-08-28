@@ -3,7 +3,8 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
-                template="./WEB-INF/templates/principal.xhtml">
+                template="./WEB-INF/templates/principal.xhtml"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <ui:define name="styles">
         <link href="./css/inscricao.css" rel="stylesheet" type="text/css" />
@@ -16,7 +17,16 @@
     </ui:define>
 
     <ui:define name="content">
+        <h:outputText value="Usuário:" /> 
+            <h:graphicImage url="imagens/usuario.png" /> 
+            <h:outputText value="#{loginBean.usuario}"/> 
+            <c:if test="${loginBean.isAdmin()}">
+                <h:outputText value="[administrador]" /> 
+            </c:if>
         <h:form>
+                       
+            <h:commandButton value="Login" action="/login.xhtml" />
+            <h:commandButton value="Cadastro" action="/cadastro.xhtml" />
         </h:form>
     </ui:define>
 

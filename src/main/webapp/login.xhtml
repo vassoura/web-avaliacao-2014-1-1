@@ -20,18 +20,21 @@
             <div class="titulo-form">LOGIN</div>
             <h:panelGroup styleClass="form-block" layout="block">
                 <h:outputLabel value="Usuário" style="display: inline-block; width: 50px"/>
-                <h:inputText/>
+                <h:inputText id="usuario" value="#{loginBean.usuario}" required="true" />
             </h:panelGroup>
             <h:panelGroup styleClass="form-block" layout="block">
                 <h:outputLabel value="Senha" style="display: inline-block; width: 50px"/>
-                <h:inputSecret/>
+                <h:inputSecret id="senha" value="#{loginBean.senha}" required="true" />
             </h:panelGroup>
             <h:panelGroup styleClass="form-block" layout="block">
-                <h:selectBooleanCheckbox/>
-                <h:outputText value="Administrador"/>
+                <h:selectBooleanCheckbox value="#{loginBean.admin}" />
+                <h:outputText value="Administrador" />
             </h:panelGroup>
-            <h:commandButton value="Entrar"/>
-            <h:messages/>
+            <h:commandButton value="Entrar" action="#{loginBean.entrar}" />
+            <!--<h:outputText value="Usuário:" /> -->
+            <h:panelGroup styleClass="msgerro" layout="block">
+                <h:messages for="Entrar" />
+            </h:panelGroup>
         </h:form>
     </ui:define>
 
